@@ -1,0 +1,105 @@
+/* Background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.complaint-box {
+    background: white;
+    color: #333;
+    padding: 40px;
+    width: 850px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.complaint-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c5364;
+}
+
+/* Table Styling */
+.complaint-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.complaint-table th,
+.complaint-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.complaint-table th {
+    background-color: #f2f2f2;
+    color: #2c5364;
+    font-weight: bold;
+}
+
+/* Back Link */
+.back-option {
+    text-align: center;
+}
+
+.back-option a {
+    text-decoration: none;
+    color: #2c5364;
+    font-weight: bold;
+}
+
+.back-option a:hover {
+    color: #203a43;
+}
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Optional: Make header sticky if you want */
+.complaint-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #2c5364;
+    color: #fff;
+    z-index: 2;
+}
+
+/* Improve table styling */
+.complaint-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.complaint-table th, .complaint-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.complaint-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+

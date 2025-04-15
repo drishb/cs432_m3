@@ -1,0 +1,112 @@
+/* Page background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inventory box container */
+.inventory-box {
+    background: white;
+    color: #333;
+    padding: 40px;
+    width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading */
+.inventory-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c5364;
+}
+
+/* Inventory table */
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.inventory-table th {
+    background-color: #f2f2f2;
+    color: #2c5364;
+    font-weight: bold;
+}
+
+/* Buttons */
+.inventory-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #2c5364;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #203a43;
+}
+
+.delete {
+    background: #b02a37;
+}
+
+.delete:hover {
+    background: #7a1c27;
+}
+
+/* Back to dashboard */
+.back-option {
+    text-align: center;
+}
+
+.back-option a {
+    text-decoration: none;
+    color: #2c5364;
+    font-weight: bold;
+}
+
+.back-option a:hover {
+    color: #203a43;
+}
+
+.scroll-table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+

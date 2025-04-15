@@ -1,0 +1,89 @@
+/* Background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Container */
+.form-box {
+    width: 400px;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c5364;
+}
+
+.form-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 500;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-box input:focus {
+    border-color: #2c5364;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background: #b02a37;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-box button:hover {
+    background: #7a1c27;
+}
+
+/* Back option */
+.back-option {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back-option a {
+    text-decoration: none;
+    color: #2c5364;
+    font-weight: bold;
+}
+
+.back-option a:hover {
+    color: #203a43;
+}

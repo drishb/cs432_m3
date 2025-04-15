@@ -1,0 +1,181 @@
+/* Base layout */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Top Navigation Bar - Warden Info */
+.warden-info {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #f0f0f0;
+    padding: 15px 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center; /* CENTERED ALIGNMENT */
+    gap: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap; /* Allows wrap on smaller screens */
+}
+
+.warden-info p {
+    margin: 0;
+}
+
+/* Dashboard Box */
+.dashboard-box {
+    background: white;
+    color: #333;
+    padding: 40px;
+    width: 850px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 60px;
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-box h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c5364;
+}
+
+.dashboard-box p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Options */
+.option-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.option-box {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.option-box:hover {
+    transform: scale(1.05);
+}
+
+.option-box img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.option-box p {
+    font-weight: bold;
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+}
+
+.option-box a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Action buttons */
+.dashboard-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #2c5364;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #203a43;
+}
+
+.logout {
+    background: #b02a37;
+}
+
+.logout:hover {
+    background: #7a1c27;
+}
+
+/* Make dashboard responsive */
+@media (max-width: 900px) {
+    .dashboard-box {
+        width: 90%;
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+
+    .option-box {
+        width: 130px;
+        height: 130px;
+    }
+
+    .option-box img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .option-box p {
+        font-size: 13px;
+    }
+
+    .dashboard-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Ensure vertical centering on very small screens */
+@media (max-height: 600px) {
+    body {
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    .dashboard-box {
+        margin-top: 30px;
+    }
+}

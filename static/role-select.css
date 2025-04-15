@@ -1,0 +1,67 @@
+/* Base background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+/* Heading styling */
+h1 {
+    margin-bottom: 5px;
+    font-size: 32px;
+    color: #f0f0f0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #dddddd;
+}
+
+/* Container for roles */
+.role-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 30px 50px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Individual role box */
+.role-box a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.role-box a:hover {
+    transform: scale(1.05);
+}
+
+/* Icon size */
+.role-box img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+/* Role label */
+.role-box p {
+    font-size: 16px;
+    font-weight: bold;
+}

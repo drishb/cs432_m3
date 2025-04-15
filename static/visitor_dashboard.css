@@ -1,0 +1,75 @@
+/* Page Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Centered Dashboard Card */
+.dashboard-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Headline */
+.dashboard-box h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333333;
+}
+
+/* Visitor Info Styling */
+.visitor-info p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: #333;
+}
+
+.visitor-info strong {
+    color: #000;
+}
+
+/* Action Buttons */
+.dashboard-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dashboard-actions .btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Specific button colors */
+.dashboard-actions .btn.logout {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.dashboard-actions .btn.logout:hover {
+    background-color: #a93226;
+}
+
+.dashboard-actions .btn.home {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.dashboard-actions .btn.home:hover {
+    background-color: #1a252f;
+}
