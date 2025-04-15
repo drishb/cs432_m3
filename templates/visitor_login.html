@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Login</title>
+    <link rel="stylesheet" href="../static/visitor_login.css">
+    <style>
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;                  /* center horizontally */
+            margin-left: -125px;        /* shift left by half width */
+            bottom: 30px;               /* place 30px above bottom */
+            font-size: 17px;
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+    
+        #toast.show {
+            visibility: visible;
+            opacity: 0.9;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="login-box">
+        <h2>Visitor Login</h2>
+        <form id="visitorLoginForm" action="/authUser" method="POST">
+            <label for="MemberID">Member ID</label>
+            <input type="text" id="MemberID" name="MemberID" required>
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" required>
+
+            <input type="hidden" name="Role" value="visitor">
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="signup-option">
+            <p>Don't have an account? <a href="{{ url_for('visitor_signup') }}">Sign Up here</a></p>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        window.addEventListener('load', function () {
+            const params = new URLSearchParams(window.location.search);
+            const memberId = params.get('member_id');
+            if (memberId) {
+                const toast = document.getElementById('toast');
+                toast.textContent = "Signup successful! Your Member ID is: " + memberId;
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 10000);
+            }
+        });
+    </script>
+</body>
+</html>
+ 

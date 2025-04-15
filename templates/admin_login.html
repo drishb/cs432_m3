@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../static/admin_login_styles.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <label for="memberID">Member ID</label>
+            <input type="text" id="memberID" name="memberID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const memberID = document.getElementById('memberID').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://127.0.0.1:5000/authUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    MemberID: memberID,
+                    Password: password,
+                    Role: 'admin'
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem('token', data.token);
+                alert("Login successful as Admin!");
+                // window.location.href = "/admin-dashboard";  // Optional redirect
+            } else {
+                alert(data.error || "Login failed.");
+            }
+        });
+    </script>
+</body>
+</html>

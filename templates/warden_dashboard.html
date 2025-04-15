@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warden Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='warden_dashboard.css') }}">
+</head>
+<body>
+
+    <!-- Warden Info Top-Right -->
+    <div class="warden-info">
+        <p><strong>ID:</strong> {{ warden.warden_id }}</p>
+        <p><strong>Name:</strong> {{ warden.name }}</p>
+        <p><strong>Contact:</strong> {{ warden.contact }}</p>
+        <p><strong>Email:</strong> {{ warden.email }}</p>
+        <p><strong>Hostel:</strong> {{ warden.hostel_name }}</p>
+    </div>
+
+    <!-- Center Dashboard Content -->
+    <div class="dashboard-box">
+        <h2>Warden Dashboard</h2>
+        <p>Select an action:</p>
+
+        <div class="option-container">
+            <div class="option-box">
+                <a href="{{ url_for('add_room') }}">
+                    <img src="{{ url_for('static', filename='photo/house.png') }}" alt="Add Room">
+                    <p>Add Room</p>
+                </a>
+            </div>
+
+            <div class="option-box">
+                <a href="{{ url_for('manage_inventory') }}">
+                    <img src="{{ url_for('static', filename='photo/inventory-management.png') }}" alt="Manage Inventory">
+                    <p>Manage Inventory</p>
+                </a>
+            </div>
+
+            <div class="option-box">
+                <a href="{{ url_for('view_complaints') }}">
+                    <img src="{{ url_for('static', filename='photo/complaint.png') }}" alt="View Complaints">
+                    <p>See Complaints</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-actions">
+            <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+            <a href="{{ url_for('logout') }}" class="btn logout">Logout</a>
+        </div>
+        
+    </div>
+
+</body>
+</html>

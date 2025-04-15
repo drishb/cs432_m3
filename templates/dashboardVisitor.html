@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Dashboard</title>
+    <link rel="stylesheet" href="../static/visitor_dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-box">
+        <h2>Welcome, {{ visitor.name }}!</h2>
+
+        <div class="visitor-info">
+            <p><strong>Visitor ID:</strong> {{ visitor.visitor_id }}</p>
+            <p><strong>Student ID:</strong> {{ visitor.student_id }}</p>
+            <p><strong>Contact Number:</strong> {{ visitor.contact }}</p>
+            <p><strong>In Date:</strong> {{ visitor.in_time }}</p>
+            <p><strong>Out Date:</strong> {{ visitor.out_time }}</p>
+        </div>
+
+        <div class="dashboard-actions">
+            <a href="{{ url_for('home') }}" class="btn home">Return to Home</a>
+            <a href="{{ url_for('visitor_login') }}" class="btn logout">Logout</a>
+        </div>
+    </div>
+
+</body>
+</html>

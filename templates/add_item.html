@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Inventory Item</title>
+    <link rel="stylesheet" href="../static/add_item.css">
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Add Inventory Item</h2>
+        <form action="/add_item" method="POST">
+            <label for="item_id">Item ID</label>
+            <input type="text" id="item_id" name="item_id" required>
+
+            <label for="item_name">Item Name</label>
+            <input type="text" id="item_name" name="item_name" required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="condition">Item Condition</label>
+            <select id="condition" name="condition" required>
+                <option value="">Select Condition</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select>
+
+            <button type="submit">Add Item</button>
+        </form>
+
+        <div class="back-option">
+            <a href="manage_inventory.html">← Back to Inventory</a>
+        </div>
+    </div>
+
+</body>
+</html>

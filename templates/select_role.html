@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Select Role</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='role-select.css') }}">
+</head>
+<body>
+
+    <h1>Welcome to the Portal</h1>
+    <p>Please choose your role:</p>
+
+    <div class="role-container">
+
+        <!-- Student Section -->
+        <div class="role-box">
+            <a href="{{ url_for('student_login') }}">
+                <img src="{{ url_for('static', filename='photo/student.png') }}" alt="Student Image">
+                <p>Student</p>
+            </a>
+        </div>
+
+        <!-- Warden Section -->
+        <div class="role-box">
+            <a href="{{ url_for('warden_login') }}">
+                <img src="{{ url_for('static', filename='photo/warden.png') }}" alt="Warden Image">
+                <p>Warden</p>
+            </a>
+        </div>
+
+        <!-- Visitor Section -->
+        <div class="role-box">
+            <a href="{{ url_for('visitor_login') }}">
+                <img src="{{ url_for('static', filename='photo/visitor.png') }}" alt="Visitor Image">
+                <p>Visitor</p>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

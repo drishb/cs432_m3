@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Dashboard - Home</title>
+  
+  <link rel="stylesheet" href="../static/dashboard.css">
+</head>
+<body>
+
+  <div class="sidenav">
+    <div class="menu-title">Menu</div>
+    <a href="index.html">Home</a>
+    <a href="complaint.html">Register Complaint</a>
+    <a href="payment.html">Payment</a>
+    <a href="payment.html">Logout</a>
+  </div>
+  
+ 
+  <div class="main-content">
+    <div class="card">
+      <div class="card-header">
+        Personal Information
+      </div>
+      <div class="card-body">
+        <div class="sidebar-footer">
+          <span id="memberID-display">Member ID: {{ member_id }}</span>
+        </div>
+        <p><strong>UserID:</strong> u78910</p>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Date of Birth:</strong> 1990-01-01</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+        <p><strong>Contact Info:</strong> +1234567890</p>
+        <p><strong>Room No:</strong> 101</p>
+        <p><strong>Hostel Name:</strong> ABC Hostel</p>
+        <p><strong>Course:</strong> Bachelor of Science</p>
+        <p><strong>Branch:</strong> Computer Science</p>
+        <a href="edit-info.html" class="btn">Edit Info</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Link to the external JavaScript file -->
+  <script src="dashboardScript.js"></script>
+</body>
+</html>

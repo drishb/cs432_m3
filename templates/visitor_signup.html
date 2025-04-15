@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Signup</title>
+    <link rel="stylesheet" href="../static/visitor_signup.css">
+</head>
+<body>
+    <div class="signup-box">
+        <h2>Visitor Signup</h2>
+        <form id="visitorSignupForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="studentID">Student ID</label>
+            <input type="text" id="studentID" name="studentID" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}">
+
+            <label for="in_time">In Time</label>
+            <input type="time" id="in_time" name="in_time" required>
+
+            <label for="out_time">Out Time</label>
+            <input type="time" id="out_time" name="out_time" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-option">
+            <p>Already have an account? <a href="{{ url_for('visitor_login') }}">Login here</a></p>
+        </div>
+    </div>
+
+       <script>
+    document.getElementById("visitorSignupForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Password strength validation
+        const password = data.password;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert("Password must be at least 8 characters long and include both letters and numbers.");
+            return;
+        }
+
+        // In Time vs Out Time check
+        if (data.in_time >= data.out_time) {
+            alert("Out Time must be greater than In Time.");
+            return;
+        }
+
+        // Send data to Flask backend
+        const response = await fetch("/visitor-signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const resData = await response.json();
+        if (response.ok) {
+            const loginURL = "{{ url_for('visitor_login') }}?member_id=" + encodeURIComponent(resData.member_id);
+            window.location.href = loginURL;
+        } else {
+            alert("Error: " + resData.error);
+        }
+    });
+</script>
+
+</body>
+</html>

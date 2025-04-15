@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Complaints</title>
+    <link rel="stylesheet" href="../static/view_complaints.css">
+</head>
+<body>
+
+    <div class="complaint-box">
+        <h2>Student Complaints</h2>
+
+        <div class="table-container">
+            <table class="complaint-table">
+                <thead>
+                    <tr>
+                        <th>Complaint No</th>
+                        <th>Student ID</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Complaint Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in complaints %}
+                    <tr>
+                        <td>{{ c.complaint_no }}</td>
+                        <td>{{ c.Student_ID }}</td>
+                        <td>{{ c.category }}</td>
+                        <td>{{ c.status }}</td>
+                        <td>{{ c.complaint_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="back-option">
+            <a href="{{ url_for('warden_dashboard') }}">← Back to Dashboard</a>
+
+        </div>
+    </div>
+
+</body>
+</html>

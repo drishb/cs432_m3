@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Inventory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manage_inventory.css') }}">
+</head>
+<body>
+
+    <div class="inventory-box">
+        <h2>Manage Hostel Inventory</h2>
+
+        <!-- Inventory Table -->
+        <div class="scroll-table-wrapper">
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Item Condition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.item_id }}</td>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.i_condition }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Buttons -->
+        <div class="inventory-actions">
+            <a href="{{ url_for('add_item') }}" class="btn">Add Item</a>
+            <a href="{{ url_for('delete_item') }}" class="btn delete">Delete Item</a>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-option">
+            <a href="{{ url_for('warden_dashboard') }}">← Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

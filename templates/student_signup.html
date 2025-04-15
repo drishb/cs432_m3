@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Signup</title>
+    <link rel="stylesheet" href="../static/student_signup.css">
+</head>
+<body>
+    <div class="signup-box">
+        <h2>Student Signup</h2>
+        <form id="studentSignupForm">
+            <label for="Name">Full Name</label>
+            <input type="text" id="Name" name="Name" required>
+
+            <label for="emailID">Email</label>
+            <input type="email" id="emailID" name="emailID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" title="Enter a 10-digit phone number">
+
+            <label for="DoB">Date of Birth</label>
+            <input type="date" id="DoB" name="DoB" required>
+
+            <label for="Room_ID">Room ID (3-digit number)</label>
+            <input type="text" id="Room_ID" name="Room_ID" required>
+
+            <label for="Hostel_ID">Hostel Name (A–L)</label>
+            <input type="text" id="Hostel_ID" name="Hostel_ID" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-option">
+            <p>Already have an account? <a href="{{ url_for('student_login') }}">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("studentSignupForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const dob = new Date(form.DoB.value);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+
+            const email = form.emailID.value.trim();
+            const password = form.password.value.trim();
+            const hostelName = form.Hostel_ID.value.trim().toUpperCase();
+            const roomId = form.Room_ID.value.trim();
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Validate password
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long and include both letters and numbers.");
+                return;
+            }
+
+            // Validate hostel name A–L only
+            if (!/^[A-L]$/.test(hostelName)) {
+                alert("Hostel Name must be a single letter between A and L.");
+                return;
+            }
+            const hostelId = hostelName.charCodeAt(0) - 64; // A=1, B=2, ..., L=12
+
+            // Validate 3-digit room ID
+            if (!/^\d{3}$/.test(roomId)) {
+                alert("Room ID must be a 3-digit number.");
+                return;
+            }
+
+            const payload = {
+                Name: form.Name.value.trim(),
+                emailID: email,
+                DoB: form.DoB.value,
+                Role: "student",
+                password: password,
+                contact: form.contact.value.trim(),
+                age: age,
+                Room_ID: roomId,
+                Hostel_ID: hostelId
+            };
+
+            const response = await fetch("/student-signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const resData = await response.json();
+            if (response.ok) {
+                window.location.href = "/student_login?member_id=" + resData.member_id;
+            } else {
+                alert("Error: " + resData.error);
+            }
+        });
+    </script>
+</body>
+</html>

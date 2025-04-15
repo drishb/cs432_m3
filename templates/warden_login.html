@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warden Login</title>
+    <link rel="stylesheet" href="../static/warden_login.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Warden Login</h2>
+        <form id="wardenLoginForm">
+            <label for="memberID">Warden ID (Member ID)</label>
+            <input type="text" id="memberID" name="memberID" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('wardenLoginForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const memberID = document.getElementById('memberID').value;
+    const password = document.getElementById('password').value;
+
+    const response = await fetch('/authUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            MemberID: memberID,
+            Password: password,
+            Role: 'warden'
+        })
+    });
+
+    if (response.redirected) {
+        // ✅ If Flask returns a redirect, follow it
+        window.location.href = response.url;
+    } else {
+        const data = await response.json();
+        alert(data.error || "Login failed.");
+    }
+});
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Inventory Item</title>
+    <link rel="stylesheet" href="../static/delete_item.css">
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Delete Inventory Item</h2>
+        <form action="/delete_item" method="POST">
+            <label for="item_id">Item ID</label>
+            <input type="text" id="item_id" name="item_id" required>
+
+            <button type="submit">Delete Item</button>
+        </form>
+
+        <div class="back-option">
+            <a href="manage_inventory.html">← Back to Inventory</a>
+        </div>
+    </div>
+
+</body>
+</html>
