@@ -1,44 +1,67 @@
 # cs432_m3
 
-# Virtual Environment Setup
+# Hostel Management System
 
-To ensure the project runs in an isolated environment, it is recommended to use a Python virtual environment (`venv`). Follow the steps below to set up the virtual environment:
+## Getting Started
 
-## 1. Create the Virtual Environment
-In the root of the project directory, run the following command to create a new virtual environment:
+### 1. Clone the repository
 
 ```bash
-python3 -m venv venv
+git clone <your‑repo‑url>
+cd <repo‑directory>
 ```
 
-## 2. Activate the Virtual Environment
-- **For macOS/Linux**:
-  ```bash
-  source venv/bin/activate
-  ```
+### 2. Set up the Python virtual environment
 
-- **For Windows**:
-  ```bash
-  venv\Scripts\activate
-  ```
+```bash
+python -m venv venv
+# Activate
+venv\Scripts\activate      # Windows
+# or
+source venv/bin/activate    # macOS / Linux
+```
 
-After activation, your terminal prompt will change to indicate that the virtual environment is active.
-
-## 3. Install Dependencies
-Once the virtual environment is activated, install the required dependencies listed in `requirements.txt`:
+### 3. Install project dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-This ensures all necessary libraries and modules for the project are installed in the isolated environment.
-
-## 4. Deactivating the Virtual Environment
-When you're done working on the project, you can deactivate the virtual environment by running:
+### 4. Run the application
 
 ```bash
-deactivate
+python main.py
 ```
 
-This will return you to your system’s global Python environment.
+---
+
+## Default Credentials
+
+| Role       | Member ID | Password     |
+| ---------- | --------- | ------------ |
+| **Admin**  | 24210115  | `admin@0271` |
+| **Warden** | 2148      | `krish123`   |
+
+> **Note:** Visitor and Student accounts must be created via the respective **Sign‑Up** pages before login.
+
+---
+
+## Visitor & Student Workflow
+
+1. Complete the **Visitor Signup** or **Student Signup** form.
+2. Upon successful signup a **Member ID** pops up for \~10 seconds—copy or note it immediately.
+3. On the login page, enter:
+   - **Member ID** → the value shown in the popup.
+   - **Password** → the password you set during signup.
+4. After authentication, you will be redirected to your role‑specific dashboard.
+
+
+---
+
+
+
+
+---
+
+
 
