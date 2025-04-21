@@ -134,6 +134,44 @@ def student_dashboard():
         return jsonify({"error": "Student not found"}), 404
 
 
+# ------------------ Visitor Dashboard ------------------
+@app.route('/visitor_dashboard')
+@auth_required(app)
+def visitor_dashboard():
+    """
+    Visitor landing page.
+    Expects:
+        - g.member_id populated by auth_required
+    Renders:
+        - dashboardVisitor.html  (template expects a `visitor` dictionary)
+    """
+    member_id = g.member_id                           # From validated JWT
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Pull visitor record + name of the student they’re visiting (if any)
+    cursor.execute("""
+        SELECT  v.visitor_id,
+                v.name,
+                v.contact,
+                v.in_time,
+                v.out_time,
+                s.name AS student_name
+        FROM    cs432g4.visitors v
+        LEFT JOIN cs432g4.student s
+               ON v.student_id = s.student_id
+        WHERE   v.visitor_id = %s
+    """, (member_id,))
+    visitor_data = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if visitor_data:
+        return render_template("dashboardVisitor.html", visitor=visitor_data)
+    else:
+        # Record not found → clean JSON error
+        return jsonify({"error": "Visitor not found"}), 404
 
 @app.route('/register_complaint')
 @auth_required(app)
