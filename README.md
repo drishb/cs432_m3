@@ -8,6 +8,7 @@
 
 ```bash
 git clone https://github.com/drishb/cs432_m3
+cd cs432_m3
 
 ```
 
