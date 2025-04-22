@@ -34,7 +34,6 @@ pip install -r requirements.txt
 python main.py
 ```
 
----
 
 ## Default Credentials
 
@@ -45,7 +44,7 @@ python main.py
 
 > **Note:** Visitor and Student accounts must be created via the respective **Sign‑Up** pages before login.
 
----
+
 
 ## Visitor & Student Workflow
 
@@ -57,12 +56,7 @@ python main.py
 4. After authentication, you will be redirected to your role‑specific dashboard.
 
 
----
 
-
-
-
----
 
 
 
