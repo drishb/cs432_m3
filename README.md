@@ -5,7 +5,7 @@
 ## Getting Started
 
 ### 1. Clone the repository
-
+link to zip file https://drive.google.com/file/d/1oFp9JJNKoJBpHo_yAakuRVgU_a-OpIFZ/view?usp=sharing
 ```bash
 git clone https://github.com/drishb/cs432_m3
 cd cs432_m3
